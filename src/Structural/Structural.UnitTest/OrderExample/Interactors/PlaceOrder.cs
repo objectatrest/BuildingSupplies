@@ -36,13 +36,13 @@ namespace Structural.UnitTest.OrderExample.Interactors
 
             if (validationStatus.Status == OrderValidationStatus.Success)
             {
-                var reciept = Cmds.ExecuteCommand(new GenerateReceipt(), request) as OrderReceipt;
+                var receipt = Cmds.ExecuteCommand(new GenerateReceipt(), request) as OrderReceipt;
 
-                Cmds.ExecuteCommand(new ChargeUser(), reciept);
+                Cmds.ExecuteCommand(new ChargeUser(), receipt);
 
-                Cmds.ExecuteCommand(new SubmitToFulfillment(), reciept);
+                Cmds.ExecuteCommand(new SubmitToFulfillment(), receipt);
 
-                return reciept;
+                return receipt;
             }
             else
             {

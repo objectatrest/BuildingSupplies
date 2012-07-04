@@ -21,6 +21,7 @@ namespace Structural.UnitTest
                 } 
             };
 
+            //TODO: map orderslip to placeorder
             var orderPlacer = new PlaceOrder();
 
             var receipt = Interactions.Run<OrderSlip>(orderPlacer, order) as OrderReceipt;
