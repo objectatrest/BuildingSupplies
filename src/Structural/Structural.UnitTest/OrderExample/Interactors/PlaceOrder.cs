@@ -34,7 +34,14 @@ namespace Structural.UnitTest.OrderExample.Interactors
         {
             var validationStatus = Cmds.ExecuteCommand(new ValidateOrderRequest(), request) as OrderValidationResult;
 
-            if (validationStatus.Status == OrderValidationStatus.Success)
+            var accountStatus = Queries.ExecuteQuery(new GetAccountStatus(),
+                new CustomerSelector
+                {
+                    CustomerId = request.CustomerId
+                }) as CustomerAccountStatus;
+
+            if (validationStatus.Status == OrderValidationStatus.Success &&
+                accountStatus.Status == AccountStatus.Open)
             {
                 var receipt = Cmds.ExecuteCommand(new GenerateReceipt(), request) as OrderReceipt;
 

@@ -40,9 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ICommand.cs" />
-    <Compile Include="IInteract.cs" />
-    <Compile Include="InteractionService.cs" />
+    <Compile Include="Cmds.cs" />
+    <Compile Include="Interactions.cs" />
+    <Compile Include="IQuery.cs" />
     <Compile Include="Layers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
